@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Catálogo de Exercícios</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once('../Models/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerProfessor();
-require_once('../config/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $grupo_filtro = (int)($_GET['grupo'] ?? 0);
 $busca        = trim($_GET['busca'] ?? '');
@@ -33,7 +33,8 @@ $exercicios = mysqli_query($conexao,
 );
 $grupos = mysqli_query($conexao, "SELECT * FROM grupos_musculares ORDER BY nome");
 ?>
-<?php include('professor_navbar.php'); ?>
+
+<?php include __DIR__ . '/../layouts/professor/navbar.php'; ?>
 
 <div class="container">
     <div class="page-header fade-in">

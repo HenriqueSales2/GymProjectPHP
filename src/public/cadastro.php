@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Cadastro</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-include("config/conexao.php");
+include("../config/conexao.php");
 
 $erro    = "";
 $sucesso = "";

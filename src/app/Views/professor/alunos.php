@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Alunos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once('../Model/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerProfessor();
-require_once('../Config/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $busca = trim($_GET['busca'] ?? '');
 $where = '';
@@ -27,7 +27,8 @@ $alunos = mysqli_query($conexao,
      ORDER BY a.nome ASC"
 );
 ?>
-<?php include('professor_navbar.php'); ?>
+
+<?php include __DIR__ . '/../layouts/professor/navbar.php'; ?>
 
 <div class="container">
     <div class="page-header flex-between fade-in">

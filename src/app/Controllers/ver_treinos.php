@@ -80,7 +80,7 @@
 <body>
 <?php
 session_start();
-require_once('../Models/auth.php');
+require_once('../app/Models/auth.php');
 requerAluno();
 require_once('../config/conexao.php');
 

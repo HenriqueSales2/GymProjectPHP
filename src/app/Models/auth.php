@@ -6,7 +6,7 @@
 function requerLogin() {
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (!isset($_SESSION['usuario_id'])) {
-        header("Location: ../login.php");
+        header("Location: ../public/login.php");
         exit();
     }
 }
@@ -14,7 +14,7 @@ function requerLogin() {
 function requerProfessor() {
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (!isset($_SESSION['usuario_id']) || $_SESSION['tipo'] !== 'professor') {
-        header("Location: ../login.php");
+        header("Location: ../public/login.php");
         exit();
     }
 }
@@ -22,7 +22,7 @@ function requerProfessor() {
 function requerAluno() {
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (!isset($_SESSION['usuario_id']) || $_SESSION['tipo'] !== 'aluno') {
-        header("Location: ../login.php");
+        header("Location: ../public/login.php");
         exit();
     }
 }

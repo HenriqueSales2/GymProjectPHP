@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-include("config/conexao.php");
+include("../config/conexao.php");
 
 // Se já está logado, redireciona
 if (isset($_SESSION['usuario_id'])) {
-    if ($_SESSION['tipo'] === 'professor') header("Location: app/Views/professor/dashboard.php");
-    else header("Location: app/Views/aluno/dashboard.php");
+    if ($_SESSION['tipo'] === 'professor') header("Location: ../app/Views/professor/dashboard.php");
+    else header("Location: ../app/Views/professor/dashboard.php");
     exit();
 }
 
@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['cpf']        = $user['cpf'];
                 $_SESSION['tipo']       = $tipo;
 
-                if ($tipo === 'professor') header("Location: app/Views/professor/dashboard.php");
-                else header("Location: app/Views/aluno/dashboard.php");
+                if ($tipo === 'professor') header("Location: ../app/Views/professor/dashboard.php");
+                else header("Location: ../app/Views/aluno/dashboard.php");
                 exit();
             } else {
                 $erro = "Senha incorreta.";

@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Minha Área</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once('../Models/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerAluno();
-require_once('../config/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $aluno_id = $_SESSION['usuario_id'];
 $nome     = $_SESSION['nome'];
@@ -44,7 +44,7 @@ $total_ex = mysqli_fetch_assoc(mysqli_query($conexao,
      ),0) AS n FROM treinos t WHERE t.aluno_id=$aluno_id"
 ))['n'];
 ?>
-<?php include('navbar.php'); ?>
+<?php include __DIR__ . '/../layouts/aluno/navbar.php'; ?>
 
 <div class="container">
     <!-- Saudação -->

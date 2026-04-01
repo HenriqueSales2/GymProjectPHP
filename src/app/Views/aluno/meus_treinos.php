@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Meus Treinos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once('../Models/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerAluno();
-require_once('../includes/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $aluno_id = $_SESSION['usuario_id'];
 
@@ -30,7 +30,8 @@ while ($t = mysqli_fetch_assoc($treinos)) {
     $por_divisao[$t['tipo_divisao']][] = $t;
 }
 ?>
-<?php include('navbar.php'); ?>
+
+<?php include __DIR__ . '/../layouts/aluno/navbar.php'; ?>
 
 <div class="container">
     <div class="page-header fade-in">

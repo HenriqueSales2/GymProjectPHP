@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Editar Treino</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
 </head>
 <body>
 <?php
 session_start();
-require_once('../Models/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerProfessor();
-require_once('../config/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $prof_id = $_SESSION['usuario_id'];
 $tid     = (int)($_GET['id'] ?? 0);
@@ -124,7 +124,8 @@ while ($ex = mysqli_fetch_assoc($exercicios_raw)) {
     $catalogo[$ex['grupo_nome']][] = $ex;
 }
 ?>
-<?php include('professor_navbar.php'); ?>
+
+<?php include __DIR__ . '/../layouts/professor/navbar.php'; ?>
 
 <div class="container">
     <!-- Header -->
