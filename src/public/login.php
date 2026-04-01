@@ -9,7 +9,7 @@
 <body>
 <?php
 session_start();
-include("../config/conexao.php"); //require_once __DIR__ . '/../../../config/conexao.php'; resolver erro de NOT FOUND, o caminho está errado??
+include("../config/conexao.php");
 
 // Se já está logado, redireciona
 if (isset($_SESSION['usuario_id'])) {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $senha = trim($_POST['senha'] ?? '');
     $tipo  = trim($_POST['tipo'] ?? 'aluno');
 
-    if (empty($cpf) || empty($senha)) {
+    if (empty($cpf) || empty($senha)) {// se os campos estão vazios, lança uma "exceção" que no caso é uma mensagem
         $erro = "Preencha todos os campos.";
     } else {
         $cpf_safe = mysqli_real_escape_string($conexao, $cpf);

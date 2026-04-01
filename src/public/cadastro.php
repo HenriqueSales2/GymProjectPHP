@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $obj     = trim($_POST['objetivo'] ?? '');
 
     // Validações básicas
-    if (empty($nome) || empty($email) || empty($cpf) || empty($senha)) {
+    if (empty($nome) || empty($email) || empty($cpf) || empty($senha)) { // verifica se os campos estão vazios
         $erro = "Preencha todos os campos obrigatórios.";
-    } elseif (strlen($cpf) !== 11 || !ctype_digit($cpf)) {
+    } elseif (strlen($cpf) !== 11 || !ctype_digit($cpf)) { // caso o cpf diferente de 11 digitos
         $erro = "CPF inválido. Digite somente os 11 números.";
-    } elseif ($senha !== $confirm) {
+    } elseif ($senha !== $confirm) { // verifica se as senhas são iguais
         $erro = "As senhas não coincidem.";
-    } elseif (strlen($senha) < 6) {
+    } elseif (strlen($senha) < 6) { // verifica se a senha tem ao menos 6 caracteres
         $erro = "A senha deve ter ao menos 6 caracteres.";
     } else {
         $cpf_safe   = mysqli_real_escape_string($conexao, $cpf);
@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Checa duplicidade
         $chk = mysqli_query($conexao, "SELECT id FROM alunos WHERE cpf='$cpf_safe' OR email='$email_safe' LIMIT 1");
-        if (mysqli_num_rows($chk) > 0) {
+        if (mysqli_num_rows($chk) > 0) { // se já ouver duplicadas lança uma mensagem
             $erro = "CPF ou e-mail já cadastrado.";
-        } else {
+        } else { // caso contrário cadastra o usuário
             $nome_safe  = mysqli_real_escape_string($conexao, $nome);
             $senha_md5  = md5($senha);
             $nasc_safe  = $nasc ? "'".mysqli_real_escape_string($conexao, $nasc)."'" : "NULL";

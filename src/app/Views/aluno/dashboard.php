@@ -46,6 +46,8 @@ $total_ex = mysqli_fetch_assoc(mysqli_query($conexao,
 ?>
 <?php include __DIR__ . '/../layouts/aluno/navbar.php'; ?>
 
+<!--parte do front-->
+
 <div class="container">
     <!-- Saudação -->
     <div class="page-header fade-in">

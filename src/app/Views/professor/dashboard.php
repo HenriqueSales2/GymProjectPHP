@@ -34,6 +34,8 @@ $ultimos = mysqli_query($conexao,
 
 <?php include __DIR__ . '/../layouts/professor/navbar.php'; ?>
 
+<!--parte do front-->
+
 <div class="container">
     <div class="page-header fade-in">
         <h1>OLÁ, <span><?= strtoupper(explode(' ', $nome)[0]) ?></span></h1>

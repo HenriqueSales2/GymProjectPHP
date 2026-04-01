@@ -1,7 +1,6 @@
 <?php
-// ============================================
+
 // FUNÇÕES DE AUTENTICAÇÃO
-// ============================================
 
 function requerLogin() {
     if (session_status() === PHP_SESSION_NONE) session_start();

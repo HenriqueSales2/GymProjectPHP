@@ -1,14 +1,10 @@
--- ============================================
--- ACADEMIA ZENET - Banco de Dados Completo
--- Execute no phpMyAdmin ou MySQL CLI
--- ============================================
 
 CREATE DATABASE IF NOT EXISTS academia_zenet CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE academia_zenet;
 
--- ============================================
+
 -- TABELA: professores
--- ============================================
+
 CREATE TABLE IF NOT EXISTS professores (
                                            id INT AUTO_INCREMENT PRIMARY KEY,
                                            nome VARCHAR(100) NOT NULL,
@@ -18,9 +14,9 @@ CREATE TABLE IF NOT EXISTS professores (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
--- ============================================
+
 -- TABELA: alunos
--- ============================================
+
 CREATE TABLE IF NOT EXISTS alunos (
                                       id INT AUTO_INCREMENT PRIMARY KEY,
                                       nome VARCHAR(100) NOT NULL,
@@ -32,9 +28,9 @@ CREATE TABLE IF NOT EXISTS alunos (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
--- ============================================
+
 -- TABELA: grupos_musculares
--- ============================================
+
 CREATE TABLE IF NOT EXISTS grupos_musculares (
                                                  id INT AUTO_INCREMENT PRIMARY KEY,
                                                  nome VARCHAR(60) NOT NULL
@@ -45,9 +41,9 @@ INSERT INTO grupos_musculares (nome) VALUES
                                          ('Antebraço'), ('Quadríceps'), ('Posterior de Coxa'), ('Glúteos'),
                                          ('Panturrilha'), ('Abdômen'), ('Lombar'), ('Trapézio'), ('Corpo Todo');
 
--- ============================================
+
 -- TABELA: exercicios (catálogo)
--- ============================================
+
 CREATE TABLE IF NOT EXISTS exercicios (
                                           id INT AUTO_INCREMENT PRIMARY KEY,
                                           nome VARCHAR(100) NOT NULL,
@@ -168,9 +164,9 @@ INSERT INTO exercicios (nome, grupo_muscular_id, descricao, equipamento) VALUES
                                                                              ('Dead Hang', 14, 'Pendurado na barra, sustenta o peso por tempo.', 'Barra Fixa'),
                                                                              ('Farmer Walk', 14, 'Caminha carregando halteres pesados em cada mão.', 'Halteres Pesados');
 
--- ============================================
+
 -- TABELA: treinos (cabeçalho)
--- ============================================
+
 CREATE TABLE IF NOT EXISTS treinos (
                                        id INT AUTO_INCREMENT PRIMARY KEY,
                                        aluno_id INT NOT NULL,
@@ -185,9 +181,9 @@ CREATE TABLE IF NOT EXISTS treinos (
     FOREIGN KEY (professor_id) REFERENCES professores(id)
     );
 
--- ============================================
+
 -- TABELA: treino_exercicios (itens do treino)
--- ============================================
+
 CREATE TABLE IF NOT EXISTS treino_exercicios (
                                                  id INT AUTO_INCREMENT PRIMARY KEY,
                                                  treino_id INT NOT NULL,
@@ -202,9 +198,9 @@ CREATE TABLE IF NOT EXISTS treino_exercicios (
     FOREIGN KEY (exercicio_id) REFERENCES exercicios(id)
     );
 
--- ============================================
+
 -- DADOS DE EXEMPLO
--- ============================================
+
 
 -- Professor padrão (senha: 1234)
 INSERT INTO professores (nome, email, cpf, senha) VALUES
