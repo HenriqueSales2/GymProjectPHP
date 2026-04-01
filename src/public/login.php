@@ -9,7 +9,7 @@
 <body>
 <?php
 session_start();
-include("../config/conexao.php");
+include("../config/conexao.php"); //require_once __DIR__ . '/../../../config/conexao.php'; resolver erro de NOT FOUND, o caminho está errado??
 
 // Se já está logado, redireciona
 if (isset($_SESSION['usuario_id'])) {

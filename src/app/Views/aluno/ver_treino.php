@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZENET | Treino</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/GymProjectPHP/src/public/css/style.css">
     <style>
         .exercise-card {
             background: var(--card);
@@ -78,11 +78,12 @@
     </style>
 </head>
 <body>
+
 <?php
 session_start();
-require_once('../app/Models/auth.php');
+require_once __DIR__ . '/../../Models/auth.php';
 requerAluno();
-require_once('../config/conexao.php');
+require_once __DIR__ . '/../../../config/conexao.php';
 
 $aluno_id = $_SESSION['usuario_id'];
 $tid      = (int)($_GET['id'] ?? 0);
@@ -108,7 +109,8 @@ $itens = mysqli_query($conexao,
 $exercicios_arr = [];
 while ($ex = mysqli_fetch_assoc($itens)) $exercicios_arr[] = $ex;
 ?>
-<?php include('navbar.php'); ?>
+
+<?php include __DIR__ . '/../layouts/aluno/navbar.php'; ?>
 
 <div class="container" style="padding-bottom:5rem">
     <!-- Header do treino -->
